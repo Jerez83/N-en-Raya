@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>70</y>
+      <w>190</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>Principal
+--
+_-jugador1: String_
+_-jugador2: String_
+_-dimension: int_
+
+--
+_+main(args: String[])_
+_-crearJugadores: Jugador[]_
+--
+R1= Crear jugadores
+R2= Crear partida
+R4= Definir las dimensiones
+del tablero(n)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>70</y>
+      <w>320</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>Partida
+--
+_+MINIMENSION: int=3_
+_+MINFILA: int=1_
+-jugadores: Jugador[]           {NN} &lt;&lt;R&gt;&gt;
+-turno: int                              {[1-2]}
+-tablero: Tablero                   {NN} &lt;&lt;R&gt;&gt;
+-finJuego: boolean
+-ganador: Jugador                &lt;&lt;R&gt;&gt; 
+-dimension: int   
+
+--
++Partida(j1: Jugador, j2: Jugador, dimension: int)
++setDimension()
++jugar()
+-hayGanador(): boolean
+-hayEmpate(): boolean
+-jugadorActual(): Jugador
+-cambiarTurno()
+-leerCoordenada: Coordenada
+
+--
+R3= Crear Tablero
+R5= Calcular fin juego</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>70</y>
+      <w>280</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>Tablero
+--
+-casillas: Casilla[ ][ ]
+
+--
++Tablero(filas: int, columnas: int)
++colocar(f: Ficha, c: Coordenada)
++estaVacia(c: Coordenada): boolean
++esCoordenada(c: Coordenada): boolean
++hayLineaHorizontal(fila: int): boolean
++hayLineaVertical(columna: int): boolean
++hayDiagonalIzquierda(): boolean
++hayDiagonalDerecha(): boolean
++hayTablas(): boolean
++toString(): String
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>460</y>
+      <w>240</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Jugador
+--
+-alias: String         {NN,NM,NV}
+-ficha: Ficha         {NN} &lt;&lt;R&gt;&gt;
+
+--
++Jugador(alias: String, ficha: Ficha)
++setAlias(alias: String)
++setFicha(ficha: Ficha)
++getFicha(): Ficha
++toString(): String
+
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>460</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Ficha
+--
+-ficha: TipoFicha     {NN} &lt;&lt;R&gt;&gt;
+
+--
++Ficha(ficha: TipoFicha)
++setFicha(ficha: TipoFicha)
++equals(o: Object)
++hashCode()
++toString(): String
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>300</y>
+      <w>190</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Coordenada
+--
+-fila: int
+-columna: int
+
+--
++Coordenada(fila: int, columna: int)
++getFila(): int
++getColumna(): int
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>250</x>
+      <y>460</y>
+      <w>190</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Casilla
+--
+-ficha: Ficha           {NN} &lt;&lt;R&gt;&gt;
+
+--
++Coordenada(fila: int, columna: int)
++getFila(): int
++getColumna(): int
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>460</y>
+      <w>160</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>TipoFicha
+--
++O
++X
+--
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>380</x>
+      <y>0</y>
+      <w>130</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_N EN RAYA V0.1_
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>50</x>
+      <y>30</y>
+      <w>180</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>_Digrama clases miembros_
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
